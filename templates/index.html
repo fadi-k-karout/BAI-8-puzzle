@@ -1,19 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8-Puzzle Solver</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
+  <div class="view-screen">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-auto eight-puzzle"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-auto">
+       <div id="solution-carousel" class="carousel slide mt-4" data-ride="carousel" style="display: none;">
+     <div class="carousel-inner" id="carousel-inner">
+         <span id="carousel-state" class="carousel-state">State</span> <!-- Added state text placeholder -->
+         </div>
+ <a class="carousel-control-prev" href="#solution-carousel" role="button" data-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         <span class="sr-only">Previous</span>
+         </a>
+        
+         <a class="carousel-control-next" href="#solution-carousel" role="button" data-slide="next">
+ <span class="carousel-control-next-icon" aria-hidden="true"></span>
+         <span class="sr-only">Next</span>
+         </a>
+         </div>
+      <div class="row justify-content-center mb-2">
+        <div class="col-md-auto">
+          <button id="shuffle" class="controls-hide">Shuffle</button>
+          <button id="set-start"class="controls-hide">Set Start State</button>
+          <button id="set-end"class="controls-hide">Set End State</button>
+        </div>
+      </div>
     </div>
-</body>
+</div>
 
+
+
+      <div class="row justify-content-center">
+        <div class="col-md-auto">
+          <button id="solve" class="btn btn-success ml-2 controls-hide">Solve</button>
+          <button id="reset" class="btn btn-danger ml-2">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
 </html>
