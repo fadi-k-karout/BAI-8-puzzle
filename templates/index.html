@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>8-Puzzle Solver</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
 </head>
 <body>
   <div class="view-screen">
@@ -13,33 +15,41 @@
       <div class="row justify-content-center">
         <div class="col-md-auto eight-puzzle"></div>
       </div>
+
       <div class="row justify-content-center">
-        <div class="col-md-auto">
-       <div id="solution-carousel" class="carousel slide mt-4" data-ride="carousel" style="display: none;">
-     <div class="carousel-inner" id="carousel-inner">
-         <span id="carousel-state" class="carousel-state">State</span> <!-- Added state text placeholder -->
-         </div>
- <a class="carousel-control-prev" href="#solution-carousel" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         <span class="sr-only">Previous</span>
-         </a>
-        
-         <a class="carousel-control-next" href="#solution-carousel" role="button" data-slide="next">
- <span class="carousel-control-next-icon" aria-hidden="true"></span>
-         <span class="sr-only">Next</span>
-         </a>
-         </div>
-      <div class="row justify-content-center mb-2">
-        <div class="col-md-auto">
-          <button id="shuffle" class="controls-hide">Shuffle</button>
-          <button id="set-start"class="controls-hide">Set Start State</button>
-          <button id="set-end"class="controls-hide">Set End State</button>
-        </div>
-      </div>
-    </div>
+      <div class="col-md-2">
+          <div id="solution-carousel" class="carousel slide mt-4" data-ride="carousel" data-interval="1000" style="display: none;">
+            <div class="carousel-inner" id="carousel-inner">
+              <span id="carousel-state" class="carousel-state">State</span> <!-- Added state text placeholder -->
+            </div>
+            <a class="carousel-control-prev" href="#solution-carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#solution-carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
 </div>
+  </div>
+          <div class="row justify-content-center mb-3">
+            <div class="col-md-auto">
+              <button id="shuffle" class="controls-hide">Shuffle</button>
+              <button id="set-start" class="controls-hide">Set Start State</button>
+              <button id="set-end" class="controls-hide">Set Goal State</button>
+              <div id="loader" class="loader" style="display: none;"></div>
+            </div>
+          </div>
 
-
+          <div class="row justify-content-center mb-3">
+            <div class="col-md-auto">
+              <label for="start-state-input" class="controls-hide">Start State:</label>
+              <input type="text" id="start-state-input" class="state-input mr-2 controls-hide" placeholder="Enter start state">
+              <label for="goal-state-input" class="controls-hide">Goal State:</label>
+              <input type="text" id="goal-state-input" class="state-input controls-hide" placeholder="Enter goal state">
+            </div>
+          </div>
 
       <div class="row justify-content-center">
         <div class="col-md-auto">
@@ -52,6 +62,7 @@
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
